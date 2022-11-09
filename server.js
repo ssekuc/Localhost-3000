@@ -6,7 +6,16 @@ import {fileURLToPath} from 'url';
 import cookieParser from 'cookie-parser';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+import userRouter from './app/user/user.route.js';
+import gameRouter from './app/game/game.route.js';
 
+import mongoose from 'mongoose';
+
+mongoose.connect('mongodb://localhost:27017/tournament');
+const db = mongoose.connection;
+
+db.on('open', () => console.log(`Connected to MongoDB`));
+db.on('error', () => console.error('Connection Error'));
 
 
 const app = express();
@@ -21,6 +30,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, './client')));
 app.use(express.static(path.join(__dirname, './node_modules')));
 
+app.use('/user', userRouter);
+app.use('/game', gameRouter);
 
 app.get('/', (req, res) => {
     //res.send('Localhost:3000 project started');

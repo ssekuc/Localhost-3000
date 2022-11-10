@@ -1,3 +1,10 @@
+/*File: app.css
+Group Name: Localhost3000
+Student Names: Alexander Maynard
+Date: 2022-11-10-*/
+
+
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -348,27 +355,47 @@
     display: none;
   }
   
-body{
+/*body{
     position: absolute;
-}
+}*/
   
-header{
+/*header{
     height: 10vh;
     width: 100vw;
     position: fixed;
     background-color: yellow;
     box-sizing: border-box;
-}
+}*/
 
-main{
+/*main{
     height: 80vh;
     margin-top: 10vh;
     width: 100vw;
     background-color: bisque;
-}
+}*/
 
 /*footer{
     background-color: blue;
     height: 10vh;
     width: 100vw;
 }*/
+
+
+/*STYLES FOR CONTACT.EJS*/
+
+main {
+  background-color: #142c3c;
+}
+
+.tab-content {
+  background-color: white;
+}
+
+#nav-tab {
+  background-color: none;
+}
+
+
+#navbar {
+  background-color: #6c8494;
+}

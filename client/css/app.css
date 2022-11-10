@@ -381,21 +381,25 @@ Date: 2022-11-10-*/
 }*/
 
 
-/*STYLES FOR CONTACT.EJS*/
+/*GENERAL STYLES*/
 
+
+/*Color for main content*/
 main {
   background-color: #142c3c;
 }
 
+/*landing page tab content (inside) background color (create/past/active tournament)*/
 .tab-content {
   background-color: white;
 }
 
+/*landing page tab button background color (when not selected) (create/past/active tournament)*/
 #nav-tab {
   background-color: none;
 }
 
-
+/*navbar (in header.ejs) background-color*/
 #navbar {
   background-color: #6c8494;
 }

@@ -1,7 +1,6 @@
 <!--File: header.ejs
 Group Name: Localhost3000
 Student Names: Alexander Maynard
-Student ID: 301170707
 Date: 2022-11-10-->
 
 <!--File: header.ejs
@@ -21,32 +20,34 @@ Date: 2022-10-21-->
     <div class="container-fluid">
 
       <!--Bootstrap styling to control how the nav is displayed normally or when page resizes (toggle)-->
-      <a class="navbar-brand" href="/"><i class="fa-solid  fa-lg"></i><!--Icon I made (Group Logo)--><img src="/content/images/Localhost3000Logo_DarkTheme.png" alt="COMP229 - Team Logo(Locahost3000)" width="16%" style="padding-right: 2%;">Tournament Bracket Site</a>
+      <a class="navbar-brand" href="/"><i class="fa-solid  fa-lg"></i><!--Icon I made (Group Logo)--><img src="/images/Localhost3000Logo_DarkTheme.png" alt="COMP229 - Team Logo(Locahost3000)" width="16%" style="padding-right: 2%;">Tournament Bracket Site</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!--Bootstrap nav styles for aligning items-->
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <!--Bootsrap class nav-item sets items as nav items and nav-link acts as link to various pages and sets active page icon color darker than the rest-->
-
-          <% if(displayName) { %>
-          <li class="nav-item">
-            <!--Boostrap link to profile page-->
-            <a class="nav-link <%= (page == 'profile') ? 'active' : ''; %>" aria-current="page" href="/profile"><i class="fa-solid fa-user fa-lg"></i>Profile</a>
-          </li>
-          <% } %>
-
-          <% if(displayName) { %>
+          
+            <!--Bootsrap class nav-item sets items as nav items and nav-link acts as link to various pages and sets active page icon color darker than the rest-->
+            <!--Boostrap link to profile page if logged in-->
+            <!--<% if(true) { %>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/logout"><i class="fa-solid fa-right-from-bracket fa-lg"></i> Logout</a>
+                <a class="nav-link <%= (page == 'profile') ? 'active' : ''; %>" aria-current="page" href="/profile"><i class="fa-solid fa-user fa-lg"></i>Profile</a>
             </li>
+            <% } %>-->
+
+
+          <!--Boostrap link to logout button if logged in-->
+          <!--<% if(true) { %>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/logout"><i class="fa-solid fa-right-from-bracket fa-lg"></i> Logout</a>
+            </li>-->
             <!--Otherwise if logged out (if displayName false) it shows login on nav bar and the link leads to login-->
-            <% } else { %>
-              <li class="nav-item">
+            <!--<% } else { %>
+            <li class="nav-item">
                 <a class="nav-link <%= (page == 'login') ? 'active' : ''; %>" aria-current="page" href="/login"><i class="fa-solid fa-right-to-bracket fa-lg"></i>Login</a>
-              </li>
-            <% } %>
+            </li>
+            <% } %>-->
           
         </ul>
       </div>

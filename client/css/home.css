@@ -1,0 +1,9 @@
+/*landing page tab content (inside) background color (create/past/active tournament)*/
+.tab-content {
+    background-color: white;
+}
+  
+/*landing page tab button background color (when not selected) (create/past/active tournament)*/
+#nav-tab {
+    background-color: none;
+}

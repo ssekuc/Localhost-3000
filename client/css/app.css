@@ -4,6 +4,11 @@ Student Names: Alexander Maynard
 Date: 2022-11-10-*/
 
 
+@import "./header.css";
+@import "./home.css";
+@import "./detail.css";
+@import "./footer.css";  
+
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -354,31 +359,7 @@ Date: 2022-11-10-*/
   [hidden] {
     display: none;
   }
-  
-/*body{
-    position: absolute;
-}*/
-  
-/*header{
-    height: 10vh;
-    width: 100vw;
-    position: fixed;
-    background-color: yellow;
-    box-sizing: border-box;
-}*/
 
-/*main{
-    height: 80vh;
-    margin-top: 10vh;
-    width: 100vw;
-    background-color: bisque;
-}*/
-
-/*footer{
-    background-color: blue;
-    height: 10vh;
-    width: 100vw;
-}*/
 
 
 /*GENERAL STYLES*/
@@ -389,17 +370,8 @@ main {
   background-color: #142c3c;
 }
 
-/*landing page tab content (inside) background color (create/past/active tournament)*/
-.tab-content {
-  background-color: white;
-}
 
-/*landing page tab button background color (when not selected) (create/past/active tournament)*/
-#nav-tab {
-  background-color: none;
-}
 
-/*navbar (in header.ejs) background-color*/
-#navbar {
-  background-color: #6c8494;
-}
+
+
+

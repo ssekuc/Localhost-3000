@@ -1,0 +1,20 @@
+
+#navbar {
+    background-color: #6c8494;
+}
+
+#logo_image{
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+
+.navbar-nav > button{
+    margin-right: 20px;
+}
+
+@media screen and (max-width: 992px) {
+    .navbar-nav > button {
+      margin-right: 0px;
+    }
+}

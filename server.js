@@ -1,17 +1,22 @@
 import express from 'express';
-
+import session from 'express-session';
 import path,{dirname} from 'path';
 import {fileURLToPath} from 'url';
-
 import cookieParser from 'cookie-parser';
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
+import passport from 'passport';
+import passportJWT from 'passport-jwt';
+import cors from 'cors';
+import User from './app/user/user.model.js';
 import userRouter from './app/user/user.route.js';
 import gameRouter from './app/game/game.route.js';
-
 import mongoose from 'mongoose';
+import {Secret} from './app/config/config.js'
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
-mongoose.connect('mongodb://localhost:27017/tournament');
+
+
+import URI from "./app/config/db.js"
+mongoose.connect(URI);
 const db = mongoose.connection;
 
 db.on('open', () => console.log(`Connected to MongoDB`));
@@ -30,13 +35,59 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, './client')));
 app.use(express.static(path.join(__dirname, './node_modules')));
 
+app.use(cors());
+
+
+
+let JWTStrategy = passportJWT.Strategy;
+let ExtractJWT = passportJWT.ExtractJwt;
+
+
+app.use(session({
+    secret: Secret,
+    saveUninitialized: false, 
+    resave: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+let jwtOptions = {
+    jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
+    secretOrKey: Secret
+}
+
+let strategy = new JWTStrategy(jwtOptions, (jwt_payload, done) => {
+    User.findById(jwt_payload.id)
+        .then(user => {
+            return done(null, user)
+        })
+        .catch(err => {
+            return done(err, false)
+        });
+});
+
+passport.use(strategy);
+
+
+
+
+
 app.use('/user', userRouter);
 app.use('/game', gameRouter);
-
 app.get('/', (req, res) => {
-    //res.send('Localhost:3000 project started');
-    res.render('index', { page: 'home' });
+    res.render('index', { page: 'home', user: '' });
 })
+app.get('/home', (req, res) => {
+    res.render('index', { page: 'home', user: '' });
+})
+
+
 
 app.listen(Port, () => {
     console.log(`Localhost:3000 app listening on port ${Port}`);

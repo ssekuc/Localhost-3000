@@ -27,16 +27,30 @@ Date: 2022-10-21-->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!--Bootstrap nav styles for aligning items-->
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#loginModal">
-            Login
-          </button>
-          <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#registerModal">
-            Register
-          </button>
-          <button type="button" class="btn btn-primary mb-2">
-            Admin
-          </button>
+          <% if(!user) { %>
+            <a href="/user/login">
+              <button type="button" class="btn btn-primary mb-2">
+                Login
+              </button>
+            </a>
+            <a href="/user/register">
+              <button type="button" class="btn btn-primary mb-2">
+                Register
+              </button>
+            </a>
+          <% } else { %>
+            <a href="/user/logout">
+              <button type="button" class="btn btn-danger mb-2">
+                Logout
+              </button>
+            </a>
+          <% } %>
           
+          <% if(user.isAdmin == 'Y') { %>
+            <button type="button" class="btn btn-primary mb-2">
+              Admin
+            </button>
+          <% } %>
             <!--Bootsrap class nav-item sets items as nav items and nav-link acts as link to various pages and sets active page icon color darker than the rest-->
             <!--Boostrap link to profile page if logged in-->
             <!--<% if(true) { %>
@@ -63,62 +77,3 @@ Date: 2022-10-21-->
     </div>
   </nav>
 
-  <!-- Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="loginModalLabel">Login</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="ID" aria-label="ID" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
-        </div>
-        <div class="d-grid gap-2">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Login</button>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="registerModalLabel">Register</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="ID" aria-label="ID" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Phone" aria-label="Phone" aria-describedby="basic-addon1">
-        </div>
-        <div class="d-grid gap-2">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Register</button>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>

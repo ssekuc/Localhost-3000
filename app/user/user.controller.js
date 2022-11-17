@@ -5,7 +5,7 @@ import {GenerateToken} from '../utils/auth.js'
 //Show login page
 export function DisplayLoginPage(req, res, next){
     if(!req.user){
-        return res.render('index', { page: 'login', user: '' });
+        return res.render('index', { page: 'login', user: req.user });
     }
 
     return res.redirect('/home');
@@ -14,7 +14,7 @@ export function DisplayLoginPage(req, res, next){
 //Show register page
 export function DisplayRegisterPage(req, res, next){
     if(!req.user){
-        return res.render('index', { page: 'register', user: '' });
+        return res.render('index', { page: 'register', user: req.user });
     }
     return res.redirect('/home');
 }
@@ -36,8 +36,8 @@ export function ProcessLogin(req, res, next){
                 console.error(err);
                 res.end(err);
             }
+            return res.redirect('/home');
 
-            return res.render('index', { page: 'home', user: user });
 
             // const authToken = GenerateToken(user);
 
@@ -77,7 +77,7 @@ export function ProcessRegister(req, res, next){
             return res.json({success: false, msg: 'ERROR: Registration Failed!'})
         }
 
-        return res.render('index', { page: 'login', user: '' });
+        return res.redirect('/login');
 
         // return res.json({success: true, msg: 'User Registered Successfully'});
     })
@@ -94,6 +94,6 @@ export function ProcessLogout(req, res, next){
         console.log("user logged out successfully");
     });
 
-    res.redirect('/user/login');
+    res.redirect('/login');
 }
 

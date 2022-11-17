@@ -19,17 +19,19 @@ Date: 2022-11-10-->
         <!--Bootstrap nav and tabs, from: https://getbootstrap.com/docs/5.0/components/navs-tabs/-->
         <nav>
             <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-new-tournament-tab" data-bs-toggle="tab" data-bs-target="#nav-new-tournament" type="button" role="tab" aria-controls="nav-new-tournament" aria-selected="true">New Tournament</button>
+                <button class="nav-link active" id="nav-active-tournament-tab" data-bs-toggle="tab" data-bs-target="#nav-active-tournament" type="button" role="tab" aria-controls="nav-active-tournament" aria-selected="false">Active Tournaments</button>
                 <button class="nav-link" id="nav-past-tournament-tab" data-bs-toggle="tab" data-bs-target="#nav-past-tournament" type="button" role="tab" aria-controls="nav-past-tournament" aria-selected="false">Past Tournaments</button>
-                <button class="nav-link" id="nav-active-tournament-tab" data-bs-toggle="tab" data-bs-target="#nav-active-tournament" type="button" role="tab" aria-controls="nav-active-tournament" aria-selected="false">Active Tournaments</button>
+                <% if(user != undefined) { %>
+                    <button class="nav-link" id="nav-new-tournament-tab" data-bs-toggle="tab" data-bs-target="#nav-new-tournament" type="button" role="tab" aria-controls="nav-new-tournament" aria-selected="true">New Tournament</button>
+                <% } %>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-new-tournament" role="tabpanel" aria-labelledby="nav-new-tournament-tab"><br><h1>Create Tournament</h1><br><img src="/images/LandingPage_NewTournament.png" class="img-fluid rounded mx-auto d-block" alt="New Tournament Image">
+            <div class="tab-pane show active" id="nav-active-tournament" role="tabpanel" aria-labelledby="nav-active-tournament-tab"><br><h1>Active Tournaments</h1><br><img src="/images/LandingPage_ActiveTournament.png" class="img-fluid rounded mx-auto d-block" alt="Active Tournament Image">
                 <br>
                 <!--buttons area-->                          
                 <div>
-                    <button id="newTournamentButton" type="button" class="btn btn-primary btn-lg"><i></i>Create New Tournament</button>
+                    <a href="/active"><button id="activeTournamentButton" type="button" class="btn btn-primary btn-lg"><i></i>See Active Tournaments</button></a>
                 </div>
                 <br>
             </div>
@@ -37,18 +39,20 @@ Date: 2022-11-10-->
                 <br>
                 <!--buttons area-->                          
                 <div>
-                    <button id="pastTournamentButton" type="button" class="btn btn-primary btn-lg"><i></i>See Past Tournaments</button>
+                    <a href="/past"><button id="pastTournamentButton" type="button" class="btn btn-primary btn-lg"><i></i>See Past Tournaments</button></a>
                 </div>
                 <br>
             </div>
-            <div class="tab-pane fade" id="nav-active-tournament" role="tabpanel" aria-labelledby="nav-active-tournament-tab"><br><h1>Active Tournaments</h1><br><img src="/images/LandingPage_ActiveTournament.png" class="img-fluid rounded mx-auto d-block" alt="Active Tournament Image">
-                <br>
-                <!--buttons area-->                          
-                <div>
-                    <button id="activeTournamentButton" type="button" class="btn btn-primary btn-lg"><i></i>See Active Tournaments</button>
+            <% if(user != undefined) { %>
+                <div class="tab-pane fade" id="nav-new-tournament" role="tabpanel" aria-labelledby="nav-new-tournament-tab"><br><h1>Create Tournament</h1><br><img src="/images/LandingPage_NewTournament.png" class="img-fluid rounded mx-auto d-block" alt="New Tournament Image">
+                    <br>
+                    <!--buttons area-->                          
+                    <div>
+                        <a href="/add"><button id="newTournamentButton" type="button" class="btn btn-primary btn-lg"><i></i>Create New Tournament</button></a>
+                    </div>
+                    <br>
                 </div>
-                <br>
-            </div>
+            <% } %>
         </div>
         <br>
         <br>

@@ -27,50 +27,33 @@ Date: 2022-10-21-->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!--Bootstrap nav styles for aligning items-->
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <% if(!user) { %>
-            <a href="/user/login">
+          <% if(user == undefined) { %>
+            <a href="/login">
               <button type="button" class="btn btn-primary mb-2">
                 Login
               </button>
             </a>
-            <a href="/user/register">
+            <a href="/register">
               <button type="button" class="btn btn-primary mb-2">
                 Register
               </button>
             </a>
           <% } else { %>
-            <a href="/user/logout">
+            <a href="/logout">
               <button type="button" class="btn btn-danger mb-2">
                 Logout
               </button>
             </a>
           <% } %>
           
-          <% if(user.isAdmin == 'Y') { %>
-            <button type="button" class="btn btn-primary mb-2">
-              Admin
-            </button>
+          <% if(user != undefined && user.isAdmin == 'Y') { %>
+            <a href="/admin">
+              <button type="button" class="btn btn-primary mb-2">
+                Admin
+              </button>
+            </a>
           <% } %>
-            <!--Bootsrap class nav-item sets items as nav items and nav-link acts as link to various pages and sets active page icon color darker than the rest-->
-            <!--Boostrap link to profile page if logged in-->
-            <!--<% if(true) { %>
-            <li class="nav-item">
-                <a class="nav-link <%= (page == 'profile') ? 'active' : ''; %>" aria-current="page" href="/profile"><i class="fa-solid fa-user fa-lg"></i>Profile</a>
-            </li>
-            <% } %>-->
-
-
-          <!--Boostrap link to logout button if logged in-->
-          <!--<% if(true) { %>
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/logout"><i class="fa-solid fa-right-from-bracket fa-lg"></i> Logout</a>
-            </li>-->
-            <!--Otherwise if logged out (if displayName false) it shows login on nav bar and the link leads to login-->
-            <!--<% } else { %>
-            <li class="nav-item">
-                <a class="nav-link <%= (page == 'login') ? 'active' : ''; %>" aria-current="page" href="/login"><i class="fa-solid fa-right-to-bracket fa-lg"></i>Login</a>
-            </li>
-            <% } %>-->
+            
           
         </ul>
       </div>

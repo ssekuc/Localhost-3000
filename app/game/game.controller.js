@@ -9,23 +9,6 @@ export function DisplayAddPage(req, res, next){
     return res.render('index', { page: 'add', user: req.user });
 }
 
-export function DisplayActiveListPage(req, res, next){
-
-    Game.find((err, games) => {
-        if(err){
-            console.log(err);
-            res.end(err);
-        }
-        return res.render('index', { page: 'activeList', user: req.user, games });
-
-    })
-
-}
-
-export function DisplayPastListPage(req, res, next){
-
-    return res.render('index', { page: 'pastList', user: req.user });
-}
 
 export function ProcessAddTournament(req, res, next){
     if(!req.user){
@@ -97,3 +80,40 @@ export function ProcessAddTournament(req, res, next){
 
     });
 }
+
+
+export function DisplayActiveListPage(req, res, next){
+
+    Game.find((err, games) => {
+        if(err){
+            console.log(err);
+            res.end(err);
+        }
+        return res.render('index', { page: 'activeList', user: req.user, games });
+
+    })
+
+}
+
+export function DisplayPastListPage(req, res, next){
+
+    return res.render('index', { page: 'pastList', user: req.user });
+}
+
+
+export function DisplayDetailPage(req, res, next){
+    let id = '637690c06492a11bda6f0678';
+    console.log(id);
+
+    Game.findById({_id : id}, (err, game) => {
+        if(err){
+            console.log(err);
+            res.end(err);
+        }
+        return res.render('index', { page: 'detail', user: req.user, game });
+
+    })
+
+}
+
+

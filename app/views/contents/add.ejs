@@ -1,4 +1,131 @@
-<div>Add page</div>
-<form method="post" action="/add">
-    <button type="submit">Submit</button>
+<form method="post" action="/add" novalidate>
+    <div class="container justify-content-center text-center text-uppercase">
+        <br>
+        <br>
+        <h1>Tournament Details</h1>
+        <div class="form-div container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <label for="titleTextField">Title</label>
+                    <input type="text" class="form-control"
+                    id="titleTextField"
+                    placeholder="Tournament Title"
+                    name="title" 
+                    value=""
+                    required>
+                </div>
+            </div>
+            <br>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <label for="numOfPlayerTextField">Number of Players</label>
+                    <input type="text" class="form-control"
+                    id="numOfPlayerTextField"
+                    placeholder="Number of Players"
+                    name="numOfPlayers" 
+                    value="8"
+                    disabled
+                    required>
+                </div>
+            </div>
+            <br>
+            <label for="numOfPlayerTextField">Team Names</label>
+            <div class="row justify-content-center">
+                <div class="col-md-2">                    
+                    <input type="text" class="form-control"
+                    id="team1NameTextField"
+                    placeholder="Team 1 Name"
+                    name="team1Name" 
+                    value=""
+                    required>
+                </div>
+                <div class="col-md-2">
+                   <input type="text" class="form-control"
+                    id="team2NameTextField"
+                    placeholder="Team 2 Name"
+                    name="team2Name" 
+                    value=""
+                    required>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-2">
+                    <input type="text" class="form-control"
+                    id="team3NameTextField"
+                    placeholder="Team 3 Name"
+                    name="team3Name" 
+                    value=""
+                    required>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control"
+                        id="team4NameTextField"
+                        placeholder="Team 4 Name"
+                        name="team4Name" 
+                        value=""
+                        required>
+                    </div>
+                </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-2">
+                    <input type="text" class="form-control"
+                    id="team5NameTextField"
+                    placeholder="Team 5 Name"
+                    name="team5Name" 
+                    value=""
+                    required>
+                    </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control"
+                        id="team6NameTextField"
+                    placeholder="Team 6 Name"
+                    name="team6Name" 
+                    value=""
+                    required>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-2">
+                    <input type="text" class="form-control"
+                    id="team7NameTextField"
+                    placeholder="Team 7 Name"
+                    name="team7Name" 
+                    value=""
+                    required>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control"
+                    id="team8NameTextField"
+                    placeholder="Team 8 Name"
+                    name="team8Name" 
+                    value=""
+                    required>
+                </div>
+            </div>
+
+        <br>
+        <br>    
+        <br>
+        <br>
+            <div class="row justify-content-center">
+                <div class="col-md-2">
+                    <button id="submit" class="btn btn-primary btn-lg text-uppercase" type="submit">Create</button>
+                </div>
+                <div class="col-md-2">
+                    <a href="/home" id="cancel" type="reset" class="btn btn-warning btn-lg text-uppercase"><i></i>Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 </form>

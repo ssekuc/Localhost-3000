@@ -1,0 +1,23 @@
+label {
+    color: #142c3c;
+}
+
+.lead {
+    color: #6c8494;
+}
+
+.form-div {
+    background-color: white;
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    width: 70%;
+    border-radius: 15px 50px;
+}
+
+
+.col-md-2 {
+    padding: .25%;
+
+}

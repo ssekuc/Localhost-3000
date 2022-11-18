@@ -7,6 +7,6 @@ router.get('/add', DisplayAddPage);
 router.post('/add', ProcessAddTournament);
 router.get('/active', DisplayActiveListPage);
 router.get('/past', DisplayPastListPage);
-router.get('/detail/:id', DisplayDetailPage);
+router.get('/:id', DisplayDetailPage);
 
 export default router;

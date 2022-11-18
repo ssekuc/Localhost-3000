@@ -3,16 +3,12 @@
 
 <div><%= game.title %></div>
 
-<input id="json" type="hidden" value="<%= game %>">
+<!-- <input id="json" type="hidden" value="<%= game %>"> -->
 
 <!-- javascript -->
 <script>
-    let game = document.getElementById('json').value;
+    // let game = document.getElementById('json').value;
 
-    
-    game = JSON.parse(game);
-
-    console.log('asdf');
 
     let btn = document.getElementById('detailbtn');
     btn.addEventListener('click', function(){

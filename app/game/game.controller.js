@@ -16,31 +16,43 @@ export function ProcessAddTournament(req, res, next){
         return res.redirect('/login')
     }
 
+    console.log(req.body.numOfPlayers);
+    console.log(req.body.title);
+
+    function convert(raw){
+        let result = Number(raw);
+        return result;
+    }
+
+    let count = convert(req.body.numOfPlayers);
+
+    console.log(count);
+
     let newGame = new Game({
-        title : "second game",
-        creatorId : "yun",
-        teams : 8,
+        title : req.body.title,
+        creatorId : req.user.username,
+        teams : count,
         game : {
             firstRound : {
                 isDone : "N",
                 game1 : {
-                    team1 : "yun",
-                    team2 : "alex",
+                    team1 : req.body.team1Name,
+                    team2 : req.body.team2Name,
                     winner : null
                 },
                 game2 : {
-                    team3 : "asdfas",
-                    team4 : "asdfasdfasd",
+                    team3 : req.body.team3Name,
+                    team4 : req.body.team4Name,
                     winner : null
                 },
                 game3 : {
-                    team5 : "teasdfm5",
-                    team6 : "teaasdasdfasm6",
+                    team5 : req.body.team5Name,
+                    team6 : req.body.team6Name,
                     winner : null
                 },
                 game4 : {
-                    team7 : "sssss",
-                    team8 : "teasdf",
+                    team7 : req.body.team7Name,
+                    team8 : req.body.team8Name,
                     winner : null
                 }
             },

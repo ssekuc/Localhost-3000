@@ -77,11 +77,12 @@ let strategy = new JWTStrategy(jwtOptions, (jwt_payload, done) => {
 passport.use(strategy);
 
 
-
+app.use('/', homeRouter);
+app.use('/', adminRouter);
 app.use('/', userRouter);
 app.use('/', gameRouter);
-app.use('/', adminRouter);
-app.use('/', homeRouter);
+
+
 
 
 

@@ -11,7 +11,6 @@ export function DisplayAddPage(req, res, next){
 
 
 export function ProcessAddTournament(req, res, next){
-    console.log(req.body);
 
     if(!req.user){
         return res.redirect('/login')

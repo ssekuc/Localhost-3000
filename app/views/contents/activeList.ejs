@@ -33,9 +33,10 @@
                         <td>1-4</td>
                         <td><%= games[i].game.firstRound.game4.team7 %> VS <%= games[i].game.firstRound.game4.team8 %></td>
                         <td><%= games[i].game.firstRound.game4.winner %></td>
+                        <td><%= games[i]._id %></td>
                     </tr>
                 </table>
-                <a href="/:id"><button id="pastTournamentButton" type="button" class="btn btn-primary btn-lg">Tournament Details</button></a>
+                <a href="/<%= games[i]._id %>"><button id="pastTournamentButton" type="button" class="btn btn-primary btn-lg">Tournament Details</button></a>
             </div>
         <% } %>
     

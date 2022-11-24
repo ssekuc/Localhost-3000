@@ -36,7 +36,9 @@
                         <td><%= games[i]._id %></td>
                     </tr>
                 </table>
-                <a href="/detail/<%= games[i]._id %>"><button id="pastTournamentButton" type="button" class="btn btn-primary btn-lg">Tournament Details</button></a>
+                <% if(user != undefined) { %>
+                    <a href="/detail/<%= games[i]._id %>"><button id="pastTournamentButton" type="button" class="btn btn-primary btn-lg">Tournament Details</button></a>
+                <% } %>
             </div>
         <% } %>
     

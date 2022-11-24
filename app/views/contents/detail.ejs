@@ -1,9 +1,53 @@
-<div class="detail-div">Detail page</div>
-<button id="detailbtn">Button</button>
+<style>
+    /*Header Styles*/
+    #navbar {
+    background-color: #6c8494;
+    }
 
-<input type="" name="id" value="<%= game._id %>" >
+    #logo_image{
+        width: 80px;
+        height: 80px;
+        margin-right: 20px;
+    }
 
-<div style="color: white;"><%= game.game.firstRound.game1.team2 %></div>
+    .navbar-nav button{
+        margin-right: 20px;
+        }
+
+    @media screen and (max-width: 992px) {
+        .navbar-nav button {
+        margin-right: 0px;
+    }
+    }   
+
+    /*Main content Styles*/
+    #detail-form {
+        background-color: #142c3c;  
+    }
+</style>
+
+
+
+
+
+
+<form id="detail-form">
+    <div class="detail-div">Detail page</div>
+    <button id="detailbtn">Button</button>
+    
+    <input type="" name="id" value="<%= game._id %>" >
+
+
+
+    <div style="color: black;"><%= game.title %></div>
+
+
+
+
+
+
+</form>
+
 
 <!-- <input id="json" type="hidden" value="<%= game %>"> -->
 

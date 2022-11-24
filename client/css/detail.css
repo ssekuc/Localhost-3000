@@ -1,0 +1,10 @@
+#detailbtn{
+    background-color: black;
+    width: 200px;
+}
+
+.detail-div{
+    background-color: red;
+    color: blue;
+    padding: 50%;
+}

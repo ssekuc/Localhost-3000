@@ -84,6 +84,7 @@ export function ProcessAddTournament(req, res, next){
 
 
 export function DisplayActiveListPage(req, res, next){
+    console.log("#########################");
 
     Game.find((err, games) => {
         if(err){
@@ -105,8 +106,10 @@ export function DisplayPastListPage(req, res, next){
 export function DisplayDetailPage(req, res, next){
     //let id = '637690c06492a11bda6f0678';
     let id = req.params.id;
-    //console.log(id);
-    //console.log(id);
+
+
+    console.log(id);
+    console.log(id);
 
     Game.findById({_id : id}, (err, game) => {
         if(err){

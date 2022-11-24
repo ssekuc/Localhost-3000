@@ -8,6 +8,13 @@ export function AuthGuard(req, res, next){
     next();
 }
 
+export function AdminAuthGuard(req, res, next){
+    if(!req.isAuthenticated() || req.user.isAdmin == 'N'){
+        return res.redirect('/')
+    }
+    next();
+}
+
 export function GenerateToken(user){
     const payload = {
         id: user._id,

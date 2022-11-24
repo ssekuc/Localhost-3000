@@ -1,4 +1,4 @@
-<div>Detail page</div>
+<div class="detail-div">Detail page</div>
 <button id="detailbtn">Button</button>
 
 <input type="" name="id" value="<%= game._id %>" >
@@ -14,7 +14,7 @@
 
     let btn = document.getElementById('detailbtn');
     btn.addEventListener('click', function(){
-        $.ajax('/add', {
+        $.ajax('/api', {
         type: 'POST',  // http method
         data: { 
                 myData: 'This is my data.',

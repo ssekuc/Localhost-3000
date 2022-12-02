@@ -24,6 +24,23 @@
     #detail-form {
         background-color: #142c3c;  
     }
+    form {
+        background-color: #142c3c;
+    }
+    .selected-tournament-div {
+    background-color: #6c8494;
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-top: 1%;
+    padding-bottom: .5%;
+    border-radius: 15px 15px;
+    margin-bottom: 2%;
+}
+
+h1 {
+    color: white;
+}
+
 </style>
 
 
@@ -31,21 +48,122 @@
 
 
 
-<form id="detail-form">
-    <div class="detail-div">Detail page</div>
-    <button id="detailbtn">Button</button>
+<form class="form" method="POST">
+    <input type="hidden" name="id" value="<%= game._id %>" >
+    <div class="container justify-content-center text-center text-uppercase">
     
-    <input type="" name="id" value="<%= game._id %>" >
-
-
-
-    <div style="color: black;"><%= game.title %></div>
-
-
-
-
-
-
+        <br>
+        <br>
+        <h1>---------------------------<br>Tournament Details<br>---------------------------</h1>
+    
+        <div class="selected-tournament-div container-fluid">
+            <table class="table table-striped table-dark table-bordered table-condensed" style="text-align: center;">
+                <tr>
+                    <th>Round-Game</th>
+                    <th>Team</th>
+                    <th>VS</th>
+                    <th>Team</th>
+                    <th>Winner</th>
+                </tr>
+                <tr>
+                    <td>1-1</td>
+                    <td>
+                        <input type="text" class="form-control" id="1-1Team1" placeholder="" name="title" value="" required>
+                    </td>
+                    <td>VS</td>
+                    <td>
+                        <input type="text" class="form-control" id="1-1Team2" placeholder="" name="title" value="" required>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="1-1Winner" placeholder="" value="" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1-2</td>
+                    <td>
+                    <input type="text" class="form-control" id="1-2Team1" placeholder="" name="title" value="" required>
+                </td>
+                <td>VS</td>
+                <td>
+                    <input type="text" class="form-control" id="1-2Team2" placeholder="" value="" required>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="1-2Winner" placeholder="" value="" required>
+                </td>
+                </tr>
+                <tr>
+                    <td>1-3</td>
+                    <td>
+                        <input type="text" class="form-control" id="1-3Team1" placeholder="" name="title" value="" required>
+                    </td>
+                    <td>VS</td>
+                    <td>
+                        <input type="text" class="form-control" id="1-3Team2" placeholder="" value="" required>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="1-3Winner" placeholder="" value="" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1-4</td>
+                    <td>
+                        <input type="text" class="form-control" id="1-4Team1" placeholder="" name="title" value="" required>
+                    </td>
+                    <td>VS</td>
+                    <td>
+                        <input type="text" class="form-control" id="1-4Team2" placeholder="" value="" required>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="1-4Winner" placeholder="" value="" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2-1</td>
+                    <td>
+                        <input type="text" class="form-control" id="2-1Team1" placeholder="" name="title" value="" required>
+                    </td>
+                    <td>VS</td>
+                    <td>
+                        <input type="text" class="form-control" id="2-1Team2" placeholder="" value="" required>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="2-1Winner" placeholder="" value="" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2-2</td>
+                    <td>
+                        <input type="text" class="form-control" id="2-2Team1" placeholder="" name="title" value="" required>
+                    </td>
+                    <td>VS</td>
+                    <td>
+                        <input type="text" class="form-control" id="2-2Team2" placeholder="" value="" required>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="2-2Winner" placeholder="" value="" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3-1</td>
+                    <td>
+                        <input type="text" class="form-control" id="3-1Team1" placeholder="" name="title" value="" required>
+                    </td>
+                    <td>VS</td>
+                    <td>
+                        <input type="text" class="form-control" id="3-1Team2" placeholder="" value="" required>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="3-1Winner" placeholder="" value="" required>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
 </form>
 
 

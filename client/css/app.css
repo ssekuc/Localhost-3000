@@ -371,6 +371,7 @@ Date: 2022-11-10-*/
 /*Color for main content*/
 main {
   background-color: #142c3c;
+  min-height: 120vh;
 }
 
 

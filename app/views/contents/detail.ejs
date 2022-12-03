@@ -37,7 +37,7 @@
     margin-bottom: 2%;
 }
 
-main {
+form {
     min-height: 120vh;
 }
 
@@ -51,9 +51,9 @@ h1 {
 
 
 
+<div>
 
-<form class="form" method="POST">
-    <input type="hidden" name="id" value="<%= game._id %>" >
+    <input type="hidden" id="id" name="id" value="<%= game._id %>" >
     <div class="container justify-content-center text-center text-uppercase">
     
         <br>
@@ -61,7 +61,7 @@ h1 {
         <h1>---------------------------<br>Tournament Details<br>---------------------------</h1>
     
         <div class="selected-tournament-div container-fluid">
-            <table class="table table-striped table-dark table-bordered table-condensed" style="text-align: center;">
+            <table id="game-table" class="table table-striped table-dark table-bordered table-condensed" style="text-align: center;">
                 <tr>
                     <th>Round-Game</th>
                     <th>Team</th>
@@ -72,98 +72,125 @@ h1 {
                 <tr>
                     <td>1-1</td>
                     <td>
-                        <input type="text" class="form-control" id="1-1Team1" placeholder="" name="title" value="" required>
+                        <!-- <input type="text" class="form-control" id="1-1Team1" placeholder="" name="title" value="<%= game.game.firstRound.game1.team1 %>" readonly required> -->
+                        <button class="btn btn-primary <%= game.game.firstRound.game1.winner != null ? 'disabled' : '' %>"><%= game.game.firstRound.game1.team1 %></button>
                     </td>
                     <td>VS</td>
                     <td>
-                        <input type="text" class="form-control" id="1-1Team2" placeholder="" name="title" value="" required>
+                        <!-- <input type="text" class="form-control" id="1-1Team2" placeholder="" name="title" value="<%= game.game.firstRound.game1.team2 %>" readonly required> -->
+                        <button class="btn btn-primary <%= game.game.firstRound.game1.winner != null ? 'disabled' : '' %>"><%= game.game.firstRound.game1.team2 %></button>
                     </td>
                     <td>
-                        <input type="text" class="form-control" id="1-1Winner" placeholder="" value="" required>
+                        <!-- <input type="text" class="form-control" id="1-1Winner" placeholder="" value="" required> -->
+                        <div><%= game.game.firstRound.game1.winner %></div>
                     </td>
                 </tr>
                 <tr>
                     <td>1-2</td>
                     <td>
-                    <input type="text" class="form-control" id="1-2Team1" placeholder="" name="title" value="" required>
+                    <button class="btn btn-primary <%= game.game.firstRound.game1.winner == null || game.game.firstRound.game2.winner != null ? 'disabled' : '' %>"><%= game.game.firstRound.game2.team3 %></button>
+                    <!-- <input type="text" class="form-control" id="1-2Team1" placeholder="" name="title" value="<%= game.game.firstRound.game2.team3 %>" readonly required> -->
                 </td>
                 <td>VS</td>
                 <td>
-                    <input type="text" class="form-control" id="1-2Team2" placeholder="" value="" required>
+                    <button class="btn btn-primary <%= game.game.firstRound.game1.winner == null || game.game.firstRound.game2.winner != null ? 'disabled' : '' %>"><%= game.game.firstRound.game2.team4 %></button>
+                    <!-- <input type="text" class="form-control" id="1-2Team2" placeholder="" value="<%= game.game.firstRound.game2.team4 %>" readonly required> -->
                 </td>
                 <td>
-                    <input type="text" class="form-control" id="1-2Winner" placeholder="" value="" required>
+                    <!-- <input type="text" class="form-control" id="1-2Winner" placeholder="" value="" required> -->
+                    <div><%= game.game.firstRound.game2.winner %></div>
                 </td>
                 </tr>
                 <tr>
                     <td>1-3</td>
                     <td>
-                        <input type="text" class="form-control" id="1-3Team1" placeholder="" name="title" value="" required>
+                        <button class="btn btn-primary <%= game.game.firstRound.game2.winner == null || game.game.firstRound.game3.winner != null ? 'disabled' : '' %>"><%= game.game.firstRound.game3.team5 %></button>
+                        <!-- <input type="text" class="form-control" id="1-3Team1" placeholder="" name="title" value="<%= game.game.firstRound.game3.team5 %>" readonly required> -->
                     </td>
                     <td>VS</td>
                     <td>
-                        <input type="text" class="form-control" id="1-3Team2" placeholder="" value="" required>
+                        <button class="btn btn-primary <%= game.game.firstRound.game2.winner == null || game.game.firstRound.game3.winner != null ? 'disabled' : '' %>"><%= game.game.firstRound.game3.team6 %></button>
+                        <!-- <input type="text" class="form-control" id="1-3Team2" placeholder="" value="<%= game.game.firstRound.game3.team6 %>" readonly required> -->
                     </td>
                     <td>
-                        <input type="text" class="form-control" id="1-3Winner" placeholder="" value="" required>
+                        <!-- <input type="text" class="form-control" id="1-3Winner" placeholder="" value="" required> -->
+                        <div><%= game.game.firstRound.game3.winner %></div>
                     </td>
                 </tr>
                 <tr>
                     <td>1-4</td>
                     <td>
-                        <input type="text" class="form-control" id="1-4Team1" placeholder="" name="title" value="" required>
+                        <button class="btn btn-primary <%= game.game.firstRound.game3.winner == null || game.game.firstRound.game4.winner != null ? 'disabled' : '' %>"><%= game.game.firstRound.game4.team7 %></button>
+                        <!-- <input type="text" class="form-control" id="1-4Team1" placeholder="" name="title" value="<%= game.game.firstRound.game4.team7 %>" readonly required> -->
                     </td>
                     <td>VS</td>
                     <td>
-                        <input type="text" class="form-control" id="1-4Team2" placeholder="" value="" required>
+                        <button class="btn btn-primary <%= game.game.firstRound.game3.winner == null || game.game.firstRound.game4.winner != null ? 'disabled' : '' %>"><%= game.game.firstRound.game4.team8 %></button>
+                        <!-- <input type="text" class="form-control" id="1-4Team2" placeholder="" value="<%= game.game.firstRound.game4.team8 %>" readonly required> -->
                     </td>
                     <td>
-                        <input type="text" class="form-control" id="1-4Winner" placeholder="" value="" required>
+                        <!-- <input type="text" class="form-control" id="1-4Winner" placeholder="" value="" required> -->
+                        <div><%= game.game.firstRound.game4.winner %></div>
                     </td>
                 </tr>
-                <tr>
-                    <td>2-1</td>
-                    <td>
-                        <input type="text" class="form-control" id="2-1Team1" placeholder="" name="title" value="" required>
-                    </td>
-                    <td>VS</td>
-                    <td>
-                        <input type="text" class="form-control" id="2-1Team2" placeholder="" value="" required>
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" id="2-1Winner" placeholder="" value="" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2-2</td>
-                    <td>
-                        <input type="text" class="form-control" id="2-2Team1" placeholder="" name="title" value="" required>
-                    </td>
-                    <td>VS</td>
-                    <td>
-                        <input type="text" class="form-control" id="2-2Team2" placeholder="" value="" required>
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" id="2-2Winner" placeholder="" value="" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3-1</td>
-                    <td>
-                        <input type="text" class="form-control" id="3-1Team1" placeholder="" name="title" value="" required>
-                    </td>
-                    <td>VS</td>
-                    <td>
-                        <input type="text" class="form-control" id="3-1Team2" placeholder="" value="" required>
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" id="3-1Winner" placeholder="" value="" required>
-                    </td>
-                </tr>
+
+                <% if(game.game.firstRound.isDone == 'Y') { %>
+                    <tr>
+                        <td>2-1</td>
+                        <td>
+                            <button class="btn btn-primary <%= game.game.firstRound.game4.winner == null || game.game.secondRound.game1.winner != null ? 'disabled' : '' %>"><%= game.game.secondRound.game1.team1 %></button>
+                            <!-- <input type="text" class="form-control" id="2-1Team1" placeholder="" name="title" value="" required> -->
+                        </td>
+                        <td>VS</td>
+                        <td>
+                            <button class="btn btn-primary <%= game.game.firstRound.game4.winner == null || game.game.secondRound.game1.winner != null ? 'disabled' : '' %>"><%= game.game.secondRound.game1.team2 %></button>
+                            <!-- <input type="text" class="form-control" id="2-1Team2" placeholder="" value="" required> -->
+                        </td>
+                        <td>
+                            <!-- <input type="text" class="form-control" id="2-1Winner" placeholder="" value="" required> -->
+                            <div><%= game.game.secondRound.game1.winner %></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2-2</td>
+                        <td>
+                            <button class="btn btn-primary <%= game.game.secondRound.game1.winner == null || game.game.secondRound.game2.winner != null ? 'disabled' : '' %>"><%= game.game.secondRound.game2.team3 %></button>
+                            <!-- <input type="text" class="form-control" id="2-2Team1" placeholder="" name="title" value="" required> -->
+                        </td>
+                        <td>VS</td>
+                        <td>
+                            <button class="btn btn-primary <%= game.game.secondRound.game1.winner == null || game.game.secondRound.game2.winner != null ? 'disabled' : '' %>"><%= game.game.secondRound.game2.team4 %></button>
+                            <!-- <input type="text" class="form-control" id="2-2Team2" placeholder="" value="" required> -->
+                        </td>
+                        <td>
+                            <!-- <input type="text" class="form-control" id="2-2Winner" placeholder="" value="" required> -->
+                            <div><%= game.game.secondRound.game2.winner %></div>
+                        </td>
+                    </tr>
+                    
+                    <% if(game.game.secondRound.isDone == 'Y') { %>
+                        <tr>
+                            <td>3-1</td>
+                            <td>
+                                <button class="btn btn-primary <%= game.game.secondRound.game2.winner == null || game.game.finalRound.game1.winner != null ? 'disabled' : '' %>"><%= game.game.finalRound.game1.team1 %></button>
+                                <!-- <input type="text" class="form-control" id="3-1Team1" placeholder="" name="title" value="" required> -->
+                            </td>
+                            <td>VS</td>
+                            <td>
+                                <button class="btn btn-primary <%= game.game.secondRound.game2.winner == null || game.game.finalRound.game1.winner != null ? 'disabled' : '' %>"><%= game.game.finalRound.game1.team2 %></button>
+                                <!-- <input type="text" class="form-control" id="3-1Team2" placeholder="" value="" required> -->
+                            </td>
+                            <td>
+                                <!-- <input type="text" class="form-control" id="3-1Winner" placeholder="" value="" required> -->
+                                <div><%= game.game.finalRound.game1.winner %></div>
+                            </td>
+                        </tr>
+                    <% } %>
+                <% } %>
             </table>
         </div>
     </div>
-</form>
+</div>
 
 
 <!-- <input id="json" type="hidden" value="<%= game %>"> -->
@@ -172,23 +199,36 @@ h1 {
 <script>
     // let game = document.getElementById('json').value;
 
+    let tableTag = document.getElementById('game-table');
 
-    let btn = document.getElementById('detailbtn');
-    btn.addEventListener('click', function(){
-        $.ajax('/api', {
-        type: 'POST',  // http method
-        data: { 
-                myData: 'This is my data.',
-                team1: 'yunki',
-                winner: 'yunki'
-                },  // data to submit
-        success: function (data, status, xhr) {
-            
-        },
-        error: function (jqXhr, textStatus, errorMessage) {
-                
+    tableTag.addEventListener('click', function(e){
+        if(e.target.tagName == 'BUTTON'){
+            let YN = confirm("confirm?");
+            let tournamentId = document.getElementById('id').value;
+            //alert(e.target.innerHTML);
+            //alert(YN);
+
+            if(YN == true){
+
+                //let id = document.getElementById('id').value;
+
+                $.ajax('/api/decidewinner/' + tournamentId, {
+                    type: 'PUT',  // http method
+                    data: { 
+                            winner: e.target.innerHTML 
+                            },  // data to submit
+                    success: function (data, status, xhr) {
+                        //alert(data);
+                        location.href = '/detail/' + tournamentId;
+                    },
+                    error: function (jqXhr, textStatus, errorMessage) {
+                        alert('fail');    
+                    }
+
+                })   
+            }
         }
-    })
+    });
 
-});
+    
 </script>

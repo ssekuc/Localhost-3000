@@ -92,16 +92,20 @@ export function DisplayActiveListPage(req, res, next){
             res.end(err);
         }
         return res.render('index', { page: 'activeList', user: req.user, games });
-
     })
-
 }
 
 export function DisplayPastListPage(req, res, next){
+    console.log("-------------------------");
 
-    return res.render('index', { page: 'pastList', user: req.user });
+    Game.find((err, games) => {
+        if(err){
+            console.log(err);
+            res.end(err);
+        }
+        return res.render('index', { page: 'pastList', user: req.user, games });   
+    })
 }
-
 
 export function DisplayDetailPage(req, res, next){
     //let id = '637690c06492a11bda6f0678';

@@ -1,1 +1,37 @@
-<h1>Admin Home page</h1>
+<form method="post" action="/add" novalidate>
+    <div class="container justify-content-center text-center text-uppercase list">
+        <br>
+        <br>
+        <h1>-------------<br>Users List<br>-------------</h1>
+
+        <% for(let i = 0; i < users.length; i++) { %>
+            <% if(user != undefined && user.isAdmin === "Y") { %>
+                <div class="active-tournament-div container-fluid">
+                    <h4>User: <%= users[i].firstName %> <%= users[i].lastName %></h4>
+                    <table class="table table-striped table-dark table-bordered table-condensed container-fluid" style="text-align: center;">
+                        <tr>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Admin Status</th>
+                            <th>Premium Status</th>
+                        </tr>
+                        <tr>
+                            <td> <%= users[i].firstName %> <%= users[i].lastName %></td>
+                            <td><%= users[i].username %></td>
+                            <td><%= users[i].email %></td>
+                            <td><%= users[i].phone %></td>
+                            <td><%= users[i].isAdmin %></td>
+                            <td><%= users[i].isPremium %></td>
+                        </tr>
+                    </table>
+                        <a href=""><button id="pastTournamentButton" type="button" class="btn btn-warning btn-lg">Edit User</button></a>
+                <% } %>
+            </div>
+        <% } %>
+    </div>
+    <br>
+    <br>
+    <br>
+</form>

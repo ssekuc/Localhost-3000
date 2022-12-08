@@ -19,93 +19,91 @@
             <div class="row justify-content-center">
                 <div class="col-md-4">
                     <label for="numOfPlayerTextField">Number of Players</label>
-                    <input type="text" class="form-control"
-                    id="numOfPlayerTextField"
-                    placeholder="Number of Players"
-                    name="numOfPlayers" 
-                    value="8"
-                    disabled
-                    required>
+                    <select name="numOfPlayers" id="select-list">
+                        <option value="8">8</option>
+                        <option value="16">16</option>
+                    </select>
                 </div>
             </div>
             <br>
             <label for="numOfPlayerTextField">Team Names</label>
-            <div class="row justify-content-center">
-                <div class="col-md-2">                    
+            <div id="teams-wrap">
+                <div class="row justify-content-center">
+                    <div class="col-md-2">                    
+                        <input type="text" class="form-control"
+                        id="team1NameTextField"
+                        placeholder="Team Name"
+                        name="teams" 
+                        value=""
+                        required>
+                    </div>
+                    <div class="col-md-2">
                     <input type="text" class="form-control"
-                    id="team1NameTextField"
-                    placeholder="Team 1 Name"
-                    name="team1Name" 
-                    value=""
-                    required>
-                </div>
-                <div class="col-md-2">
-                   <input type="text" class="form-control"
-                    id="team2NameTextField"
-                    placeholder="Team 2 Name"
-                    name="team2Name" 
-                    value=""
-                    required>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-md-2">
-                    <input type="text" class="form-control"
-                    id="team3NameTextField"
-                    placeholder="Team 3 Name"
-                    name="team3Name" 
-                    value=""
-                    required>
-                </div>
-                <div class="col-md-2">
-                    <input type="text" class="form-control"
-                        id="team4NameTextField"
-                        placeholder="Team 4 Name"
-                        name="team4Name" 
+                        id="team2NameTextField"
+                        placeholder="Team Name"
+                        name="teams" 
                         value=""
                         required>
                     </div>
                 </div>
 
-            <div class="row justify-content-center">
-                <div class="col-md-2">
-                    <input type="text" class="form-control"
-                    id="team5NameTextField"
-                    placeholder="Team 5 Name"
-                    name="team5Name" 
-                    value=""
-                    required>
+                <div class="row justify-content-center">
+                    <div class="col-md-2">
+                        <input type="text" class="form-control"
+                        id="team3NameTextField"
+                        placeholder="Team Name"
+                        name="teams" 
+                        value=""
+                        required>
                     </div>
-                <div class="col-md-2">
-                    <input type="text" class="form-control"
-                        id="team6NameTextField"
-                    placeholder="Team 6 Name"
-                    name="team6Name" 
-                    value=""
-                    required>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control"
+                            id="team4NameTextField"
+                            placeholder="Team Name"
+                            name="teams" 
+                            value=""
+                            required>
+                        </div>
+                    </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-2">
+                        <input type="text" class="form-control"
+                        id="team5NameTextField"
+                        placeholder="Team Name"
+                        name="teams" 
+                        value=""
+                        required>
+                        </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control"
+                            id="team6NameTextField"
+                        placeholder="Team Name"
+                        name="teams" 
+                        value=""
+                        required>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-2">
+                        <input type="text" class="form-control"
+                        id="team7NameTextField"
+                        placeholder="Team Name"
+                        name="teams" 
+                        value=""
+                        required>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control"
+                        id="team8NameTextField"
+                        placeholder="Team Name"
+                        name="teams" 
+                        value=""
+                        required>
+                    </div>
                 </div>
             </div>
-
-            <div class="row justify-content-center">
-                <div class="col-md-2">
-                    <input type="text" class="form-control"
-                    id="team7NameTextField"
-                    placeholder="Team 7 Name"
-                    name="team7Name" 
-                    value=""
-                    required>
-                </div>
-                <div class="col-md-2">
-                    <input type="text" class="form-control"
-                    id="team8NameTextField"
-                    placeholder="Team 8 Name"
-                    name="team8Name" 
-                    value=""
-                    required>
-                </div>
-            </div>
-
         <br>
         <br>    
         <br>
@@ -121,3 +119,23 @@
         </div>
     </div>    
 </form>
+
+
+<script>
+    let selectTag = document.querySelector('#select-list');
+
+    let teamsWrapDiv = document.querySelector('#teams-wrap');
+    let string = teamsWrapDiv.innerHTML;
+
+    selectTag.addEventListener('change', function(){
+        let newString = '';
+        if(selectTag.value == '8'){
+            newString += string;
+        }
+        else if(selectTag.value == '16'){
+            newString += string;
+            newString += string;
+        }
+        teamsWrapDiv.innerHTML = newString;
+    })
+</script>

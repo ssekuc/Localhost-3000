@@ -5,7 +5,7 @@
         <h1>-------------------------<br>Past Tournaments<br>-------------------------</h1>
     
         <% for(let i = 0; i < games.length; i++) { %>
-            <% if(games[i].isActive === "N") { %>
+            <% if(games[i].isActive === "N" && games[i].teams == 8) { %>
             <div class="active-tournament-div container-fluid">
                 <h4>Tournament Name: <%= games[i].title %></h4>
                 <table class="table table-striped table-dark table-bordered table-condensed container-fluid" style="text-align: center;">
@@ -51,7 +51,96 @@
                         <td><%= games[i].game.finalRound.game1.winner %></td>
                     </tr>
                 </table>
+                <h5 class="winner-h5">Tournament Winner: <%= games[i].game.finalRound.game1.winner %></h5>
             </div>
+            <!--16 Teams-->
+            <% } else if(games[i].isActive === "N" && games[i].teams == 16) { %>
+                <div class="active-tournament-div container-fluid">
+                    <h4>Tournament Name: <%= games[i].title %></h4>
+                    <table class="table table-striped table-dark table-bordered table-condensed container-fluid" style="text-align: center;">
+                        <tr>
+                            <th>Round-Game</th>
+                            <th>Teams</th>
+                            <th>Winner</th>
+                        </tr>
+                        <tr>
+                            <td>1-1</td>
+                            <td><%= games[i].game.firstRound.game1.team1 %> VS <%= games[i].game.firstRound.game1.team2 %></td>
+                            <td><%= games[i].game.firstRound.game1.winner %></td>
+                        </tr>
+                        <tr>
+                            <td>1-2</td>
+                            <td><%= games[i].game.firstRound.game2.team3 %> VS <%= games[i].game.firstRound.game2.team4 %></td>
+                            <td><%= games[i].game.firstRound.game2.winner %></td>
+                        </tr>
+                        <tr>
+                            <td>1-3</td>
+                            <td><%= games[i].game.firstRound.game3.team5 %> VS <%= games[i].game.firstRound.game3.team6 %></td>
+                            <td><%= games[i].game.firstRound.game3.winner %></td>
+                        </tr>
+                        <tr>
+                            <td>1-4</td>
+                            <td><%= games[i].game.firstRound.game4.team7 %> VS <%= games[i].game.firstRound.game4.team8 %></td>
+                            <td><%= games[i].game.firstRound.game4.winner %></td>
+                        </tr>
+                        <tr>
+                            <td>1-5</td>
+                            <td><%= games[i].game.firstRound.game5.team9 %> VS <%= games[i].game.firstRound.game5.team10 %></td>
+                            <td><%= games[i].game.firstRound.game5.winner %></td>
+                        </tr>
+                        <tr>
+                            <td>1-6</td>
+                            <td><%= games[i].game.firstRound.game6.team11 %> VS <%= games[i].game.firstRound.game6.team12 %></td>
+                            <td><%= games[i].game.firstRound.game6.winner %></td>
+                        </tr>
+                        <tr>
+                            <td>1-7</td>
+                            <td><%= games[i].game.firstRound.game7.team13 %> VS <%= games[i].game.firstRound.game7.team14 %></td>
+                            <td><%= games[i].game.firstRound.game7.winner %></td>
+                        </tr>
+                        <tr>
+                            <td>1-8</td>
+                            <td><%= games[i].game.firstRound.game8.team15 %> VS <%= games[i].game.firstRound.game8.team16 %></td>
+                            <td><%= games[i].game.firstRound.game8.winner %></td>
+                        </tr>
+                        <tr>
+                            <td>2-1</td>
+                            <td><%= games[i].game.secondRound.game1.team1 %> VS <%= games[i].game.secondRound.game1.team2 %></td>
+                            <td><%= games[i].game.secondRound.game1.winner %></td>
+                        </tr>
+                        <tr>
+                            <td>2-2</td>
+                            <td><%= games[i].game.secondRound.game2.team3 %> VS <%= games[i].game.secondRound.game2.team4 %></td>
+                            <td><%= games[i].game.secondRound.game2.winner %></td>
+                        </tr>
+                        <tr>
+                            <td>2-3</td>
+                            <td><%= games[i].game.secondRound.game3.team5 %> VS <%= games[i].game.secondRound.game3.team6 %></td>
+                            <td><%= games[i].game.firstRound.game3.winner %></td>
+                        </tr>
+                        <tr>
+                            <td>2-4</td>
+                            <td><%= games[i].game.secondRound.game4.team7 %> VS <%= games[i].game.secondRound.game4.team8 %></td>
+                            <td><%= games[i].game.secondRound.game4.winner %></td>
+                        </tr>
+                        <tr>
+                            <td>3-1</td>
+                            <td><%= games[i].game.thirdRound.game1.team1 %> VS <%= games[i].game.thirdRound.game1.team2 %></td>
+                            <td><%= games[i].game.thirdRound.game1.winner %></td>
+                        </tr>
+                        <tr>
+                            <td>3-2</td>
+                            <td><%= games[i].game.thirdRound.game2.team3 %> VS <%= games[i].game.thirdRound.game2.team4 %></td>
+                            <td><%= games[i].game.thirdRound.game2.winner %></td>
+                        </tr>
+                        <tr>
+                            <td>4-1</td>
+                            <td><%= games[i].game.finalRound.game1.team1 %> VS <%= games[i].game.finalRound.game1.team2 %></td>
+                            <td><%= games[i].game.finalRound.game1.winner %></td>
+                        </tr>
+                    </table>
+                    <h5 class="winner-h5">Tournament Winner: <%= games[i].game.finalRound.game1.winner %></h5>
+                </div>
             <% } %>
         <% } %>
     </div>
